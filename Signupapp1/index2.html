@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Menu</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .menu-container {
+            width: 80%;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .filter-buttons button {
+            margin: 5px;
+            padding: 10px 20px;
+            border: none;
+            background: #ff6600;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .filter-buttons button:hover {
+            background: #e65c00;
+        }
+        .menu-items {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .menu-item {
+            background: #fff;
+            padding: 15px;
+            margin: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            width: 250px;
+        }
+        .menu-item h2 {
+            margin: 0;
+            color: #333;
+        }
+        .menu-item p {
+            font-size: 14px;
+            color: #666;
+        }
+        .menu-item span {
+            font-weight: bold;
+            color: #ff6600;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-container">
+        <h1>Restaurant Menu</h1>
+        <div class="filter-buttons">
+            <button onclick="filterMenu('all')">All</button>
+            <button onclick="filterMenu('starter')">Starters</button>
+            <button onclick="filterMenu('main')">Main Course</button>
+            <button onclick="filterMenu('dessert')">Desserts</button>
+        </div>
+        <div class="menu-items" id="menu-items">
+            <div class="menu-item starter">
+                <h2>Bruschetta</h2>
+                <p>Grilled bread with garlic, tomatoes, olive oil.</p>
+                <span>$5.99</span>
+            </div>
+            <div class="menu-item main">
+                <h2>Grilled Sandwitch</h2>
+                <p>Grilled Sandwitch served with vegetables.</p>
+                <span>$12.99</span>
+            </div>
+            <div class="menu-item dessert">
+                <h2>Chocolate Cake</h2>
+                <p>Rich and moist chocolate cake.</p>
+                <span>$6.99</span>
+            </div>
+        </div>
+    </div>
+    <script>
+        function filterMenu(category) {
+            let items = document.querySelectorAll('.menu-item');
+            items.forEach(item => {
+                if (category === 'all' || item.classList.contains(category)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
